@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import assert from "assert";
 
 describe("simpleToDO", function () {
