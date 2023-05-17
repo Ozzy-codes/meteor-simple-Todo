@@ -3,7 +3,7 @@
 </body>
 
 <template name="mainContainer">
-      <div class="app">
+    <div class="app">
           <header>
               <div class="app-bar">
                   <div class="app-header">
@@ -12,27 +12,34 @@
               </div>
           </header>
   
-          <div class="main">
-              {{> form }}
+            <div class="main">
+                {{#if isUserLogged}}
+                    <div class="user">
+                    {{getUser.username}} 🚪
+                    </div>
+                    {{> form }}
 
-           <div class="filter">
-        <button id="hide-completed-button">
-            {{#if hideCompleted}}
-                    Show All
-            {{else}}
-                    Hide Completed
-            {{/if}}
-        </button>
+                        <div class="filter">
+                            <button id="hide-completed-button">
+                                {{#if hideCompleted}}
+                                        Show All
+                                {{else}}
+                                        Hide Completed
+                                {{/if}}
+                            </button>
+                        </div>
+        
+                    <ul class="tasks">
+                        {{#each tasks}}
+                            {{> task}}
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    {{> login }}
+                {{/if}}
+            </div>
     </div>
-  
-              <ul class="tasks">
-                  {{#each tasks}}
-                      {{> task}}
-                  {{/each}}
-              </ul>
-          </div>
-      </div>
-  </template>
+</template>
 
 <template name="form">
     <form class="task-form">

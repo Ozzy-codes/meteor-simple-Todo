@@ -27,3 +27,4 @@ dev-error-overlay
 autopublish@=1.0.7
 insecure@=1.0.7
 reactive-dict
+accounts-password
