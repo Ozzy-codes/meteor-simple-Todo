@@ -25,6 +25,5 @@ hot-module-replacement@0.5.3  # Update code in development without reloading the
 blaze-hot               # Update files using Blaze's API with HMR
 dev-error-overlay
 autopublish@=1.0.7
-insecure@=1.0.7
 reactive-dict
 accounts-password
