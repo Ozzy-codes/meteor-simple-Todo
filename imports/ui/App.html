@@ -9,15 +9,16 @@
                   <div class="app-header">
                       <h1>📝️ To Do List {{incompleteCount}}</h1>
                   </div>
-                  <form class="newUser">
                     <div>
-                    <button type="submit">Create New User</button>
+                    <span id="create-user">Create New User</span>
                     </div>
-                  </form>
               </div>
           </header>
   
             <div class="main">
+                {{#if showNewUserForm}}
+                    {{> newUser }}
+                {{ else }}
                 {{#if isUserLogged}}
                     <div class="user">
                     {{getUser.username}} 🚪
@@ -44,6 +45,7 @@
                     </ul>
                 {{else}}
                     {{> login }}
+                {{/if}}
                 {{/if}}
             </div>
     </div>

@@ -7,8 +7,10 @@ import { Tracker } from 'meteor/tracker';
 import './App.html';
 import './Task.js';
 import './Login.js';
+import './newUserForm.js'
 
 const HIDE_COMPLETED_STRING = "hideCompleted";
+const Show_User_form = "showUserForm"
 const getUser = () => Meteor.user();
 const isUserLogged = () => !!getUser();
 const getTasksFilter = () => {
@@ -31,6 +33,7 @@ Template.mainContainer.onCreated(function mainContainerOnCreated() {
     Tracker.autorun(() => {
         this.state.set(IS_LOADING_STRING, !handler.ready());
     });
+    this.state.set(Show_User_form, false);
 });
 
 Template.mainContainer.helpers({
@@ -68,6 +71,10 @@ Template.mainContainer.helpers({
         const instance = Template.instance();
         return instance.state.get(IS_LOADING_STRING);
     },
+    showNewUserForm() {
+        const instance = Template.instance();
+        return instance.state.get(Show_User_form);
+    }
 });
 
 Template.mainContainer.events({
@@ -77,7 +84,15 @@ Template.mainContainer.events({
     },
     "click .user"() {
         Meteor.logout();
-    }
+    },
+    "click #create-user"(event, instance) {
+        console.log('clicked');
+        instance.state.set(Show_User_form, true);
+    },
+    "click #returnToLogin"(event, instance) {
+        console.log('clicked');
+        instance.state.set(Show_User_form, false);
+    },
 });
 
 Template.form.events({
