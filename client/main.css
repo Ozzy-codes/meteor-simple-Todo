@@ -190,3 +190,7 @@ header {
 
   font-weight: bold;
 }
+
+.newUser>div>button {
+  background-color: #62807e;
+}
