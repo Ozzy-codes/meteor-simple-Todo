@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 import './newUserForm.html';
 
 Template.newUser.events({
-    'submit .newUser-form'(event, instance) {
+    'submit .newUser-form'(event) {
         event.preventDefault();
 
         const target = event.target;

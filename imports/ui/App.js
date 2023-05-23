@@ -12,7 +12,7 @@ import './newUserForm.js'
 const HIDE_COMPLETED_STRING = "hideCompleted";
 const Show_User_form = "showUserForm"
 const getUser = () => Meteor.user();
-const isUserLogged = () => !!getUser();
+const userLogged = () => !!getUser();
 const getTasksFilter = () => {
     const user = getUser();
 
@@ -43,7 +43,7 @@ Template.mainContainer.helpers({
 
         const { pendingOnlyFilter, userFilter } = getTasksFilter();
 
-        if (!isUserLogged()) {
+        if (!userLogged()) {
             return [];
         }
 
@@ -54,15 +54,15 @@ Template.mainContainer.helpers({
         return Template.instance().state.get(HIDE_COMPLETED_STRING);
     },
     incompleteCount() {
-        if (!isUserLogged()) {
+        if (!userLogged()) {
             return '';
         }
         const { pendingOnlyFilter } = getTasksFilter();
         const incompleteTasksCount = TasksCollection.find(pendingOnlyFilter).count();
         return incompleteTasksCount ? `(${incompleteTasksCount})` : '';
     },
-    isUserLogged() {
-        return isUserLogged();
+    userLogged() {
+        return userLogged();
     },
     getUser() {
         return getUser();
@@ -71,7 +71,7 @@ Template.mainContainer.helpers({
         const instance = Template.instance();
         return instance.state.get(IS_LOADING_STRING);
     },
-    showNewUserForm() {
+    createNewUser() {
         const instance = Template.instance();
         return instance.state.get(Show_User_form);
     }

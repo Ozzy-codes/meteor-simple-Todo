@@ -9,17 +9,19 @@
                   <div class="app-header">
                       <h1>📝️ To Do List {{incompleteCount}}</h1>
                   </div>
+                  {{#unless userLogged}}
                     <div>
                     <span id="create-user">Create New User</span>
                     </div>
+                  {{/unless}}
               </div>
           </header>
   
             <div class="main">
-                {{#if showNewUserForm}}
+                {{#if createNewUser}}
                     {{> newUser }}
                 {{ else }}
-                {{#if isUserLogged}}
+                {{#if userLogged}}
                     <div class="user">
                     {{getUser.username}} 🚪
                     </div>
