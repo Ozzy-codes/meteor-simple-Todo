@@ -1,7 +1,8 @@
 <template name="newUser">
-    <form class="newUser-form">
+    <h1>Please sign up below!</h1>
+    <form class="newUser-form login-form">
         <div>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username">Your desired username:</label>
 
             <input
                 type= "text"
@@ -12,7 +13,7 @@
         </div>
 
         <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Your desired password:</label>
             <input
                 type="password"
                 placeholder="Password"
@@ -24,6 +25,8 @@
         <div>
             <button type="submit">Create User</button>
         </div>
-    </form>
+        <div>
     <span id="returnToLogin">Return to Login</span>
+    </div>
+    </form>
 </template>

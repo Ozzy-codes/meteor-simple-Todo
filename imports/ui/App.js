@@ -93,6 +93,10 @@ Template.mainContainer.events({
         console.log('clicked');
         instance.state.set(Show_User_form, false);
     },
+    "submit .newUser-form"(event, instance) {
+        console.log('Sign up complete');
+        instance.state.set(Show_User_form, false);
+    },
 });
 
 Template.form.events({
